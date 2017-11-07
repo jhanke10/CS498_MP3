@@ -36,7 +36,7 @@ module.exports = function (router) {
         		});
         } else {
         	User.find(where)
-        		.sort(limit)
+        		.sort(sort)
         		.select(select)
         		.skip(skip)
         		.limit(limit)

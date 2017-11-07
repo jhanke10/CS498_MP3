@@ -3,6 +3,11 @@ var secrets = require('../config/secrets'),
 	mongoose = require('mongoose');
 
 //http://mongoosejs.com/docs/index.html
+//https://books.google.com/books?id=8kTCAwAAQBAJ&pg=PA302&lpg=PA302&dq=what+happens+when+you+create+an+object+in+mongodb+without+all+requirements&source=bl&ots=Hg3fc4QHfG&sig=joXp3Lamo0QVHveBTFBiLHaQ6v8&hl=en&sa=X&ved=0ahUKEwil4rX1-qzXAhWp7YMKHfihDz0Q6AEIRDAF#v=onepage&q=what%20happens%20when%20you%20create%20an%20object%20in%20mongodb%20without%20all%20requirements&f=false
+//https://stackoverflow.com/questions/14154337/how-to-send-a-custom-http-status-message-in-node-express
+//https://d1b10bmlvqabco.cloudfront.net/attach/j6w8seisaez4gs/idkapl9ozos5l5/j8nr80duxen7/mongodbmongoose.png
+//https://stackoverflow.com/questions/17007997/how-to-access-the-get-parameters-after-in-express
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 module.exports = function (router) {
 
     var route = router.route('/tasks');
@@ -37,7 +42,7 @@ module.exports = function (router) {
         		});
         } else {
         	Task.find(where)
-        		.sort(limit)
+        		.sort(sort)
         		.select(select)
         		.skip(skip)
         		.limit(limit)

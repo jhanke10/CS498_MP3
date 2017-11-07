@@ -30,7 +30,8 @@ module.exports = function (router) {
     route.put(function(req, res) {
     	var changes = {
     		name: req.body.name,
-    		email: req.body.email
+    		email: req.body.email,
+    		pendingTasks: req.body.pendingTasks
     	};
 
     	User.findByIdAndUpdate(req.params.id, {$set: changes}, function(error, result) {
