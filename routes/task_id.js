@@ -29,15 +29,21 @@ module.exports = function (router) {
 
     route.put(function(req, res) {
 
-    	var changes = {};
+    	var changes = {
+    		name: req.body.name,
+    		description: req.body.description,
+    		deadline: req.body.deadline,
+    		assignedUser: req.body.assignedUser,
+    		assignedUserName: req.body.assignedUserName
+    	};
 
     	//https://stackoverflow.com/questions/9398535/add-dynamic-key-value-pairs-to-javascript-array-or-hash-table
-    	if(req.body.name != undefined) changes.push({[name] : req.body.name});
-    	if(req.body.description != undefined) changes.push({[description] : req.body.description});
-    	if(req.body.deadline != undefined) changes.push({[deadline] : req.body.deadline});
-    	if(req.body.completed != undefined) changes.push({[completed] : req.body.completed});
-    	if(req.body.assignedUser != undefined) changes.push({[assignedUser] : req.body.assignedUser});
-    	if(req.body.assignedUserName != undefined) changes.push({[assignedUserName] : req.body.assignedUserName});
+    	if(req.body.name == null) delete changes.name;
+    	if(req.body.description == null) delete changes.description;
+    	if(req.body.deadline == null) delete changes.deadline;
+    	if(req.body.completed == null) delete changes.completed;
+    	if(req.body.assignedUser == null) delete changes.assignedUser;
+    	if(req.body.assignedUserName == null) delete changes.assignedUserName;
 
     	//https://stackoverflow.com/questions/28104325/how-to-use-findbyidandupdate-on-mongodb2-4
     	Task.findByIdAndUpdate(req.params.id, {$set: changes}, function(error, result) {

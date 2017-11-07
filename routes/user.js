@@ -8,12 +8,12 @@ module.exports = function (router) {
 
     route.get(function(req, res) {
         
-        var where = req.query.where != undefined ? JSON.parse(req.query.where) : undefined,
-        	sort = req.query.sort != undefined ? JSON.parse(req.query.sort) : undefined,
-        	select = req.query.select != undefined ? JSON.parse(req.query.select) : undefined,
-        	skip = req.query.skip != undefined ? JSON.parse(req.query.skip) : undefined,
-        	limit = req.query.limit != undefined ? JSON.parse(req.query.limit) : 100;
-       		count = req.query.count != undefined ? req.query.count : false;
+        var where = req.query.where != null ? JSON.parse(req.query.where) : null,
+        	sort = req.query.sort != null ? JSON.parse(req.query.sort) : null,
+        	select = req.query.select != null ? JSON.parse(req.query.select) : null,
+        	skip = req.query.skip != null ? JSON.parse(req.query.skip) : null,
+        	limit = req.query.limit != null ? JSON.parse(req.query.limit) : 0;
+       		count = req.query.count != null ? req.query.count : false;
 
         if(count) {
         	User.count(where)

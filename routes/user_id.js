@@ -29,11 +29,15 @@ module.exports = function (router) {
 
     route.put(function(req, res) {
 
-    	var changes = {};
+    	var changes = {
+    		name: req.body.name,
+    		email: req.body.email,
+    		pendingTasks: req.body.pendingTasks
+    	};
 
-    	if(req.body.name != undefined) changes.push({[name] : req.body.name});
-    	if(req.body.email != undefined) changes.push({[email] : req.body.email});
-    	if(req.body.pendingTasks != undefined) changes.push({[pendingTasks] : req.body.pendingTasks});
+    	if(req.body.name == null) delete changes.name;
+    	if(req.body.email == null) delete changes.email;
+    	if(req.body.pendingTasks == null) delete changes.pendingTasks;
 
     	User.findByIdAndUpdate(req.params.id, {$set: changes}, function(error, result) {
     		if(error) {
