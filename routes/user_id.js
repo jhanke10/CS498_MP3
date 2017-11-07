@@ -32,7 +32,7 @@ module.exports = function (router) {
     	var changes = {
     		name: req.body.name,
     		email: req.body.email,
-    		pendingTasks: req.body.pendingTasks
+    		pendingTasks: req.body.pendingTasks == null ? [] : req.body.pendingTasks
     	};
 
     	// if(req.body.name == null) delete changes.name;

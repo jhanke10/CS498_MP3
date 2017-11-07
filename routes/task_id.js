@@ -33,6 +33,7 @@ module.exports = function (router) {
     		name: req.body.name,
     		description: req.body.description,
     		deadline: req.body.deadline,
+    		completed: req.body.completed,
     		assignedUser: req.body.assignedUser,
     		assignedUserName: req.body.assignedUserName
     	};
