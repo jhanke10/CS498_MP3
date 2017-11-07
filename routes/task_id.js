@@ -19,7 +19,7 @@ module.exports = function (router) {
 					data: result
 				});
 			} else {
-				res.status(400).send({
+				res.status(404).send({
 					message: 'Page Not Found',
 					data: []
 				});
@@ -71,7 +71,7 @@ module.exports = function (router) {
 					data: result
 				});
 			} else {
-				res.status(400).send({
+				res.status(404).send({
 					message: 'Page Not Found',
 					data: []
 				});
