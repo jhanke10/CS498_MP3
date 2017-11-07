@@ -28,12 +28,12 @@ module.exports = function (router) {
     });
 
     route.put(function(req, res) {
-    	
-    	var changes = {
-    		name: req.body.name,
-    		email: req.body.email,
-    		pendingTasks: req.body.pendingTasks != undefined ? req.body.pendingTasks : []
-    	};
+
+    	var changes = {};
+
+    	if(req.body.name != undefined) changes.push({[name] : req.body.name});
+    	if(req.body.email != undefined) changes.push({[email] : req.body.email});
+    	if(req.body.pendingTasks != undefined) changes.push({[pendingTasks] : req.body.pendingTasks});
 
     	User.findByIdAndUpdate(req.params.id, {$set: changes}, function(error, result) {
     		if(error) {
