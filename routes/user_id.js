@@ -35,8 +35,8 @@ module.exports = function (router) {
     		pendingTasks: req.body.pendingTasks
     	};
 
-    	if(req.body.name == null) delete changes.name;
-    	if(req.body.email == null) delete changes.email;
+    	// if(req.body.name == null) delete changes.name;
+    	// if(req.body.email == null) delete changes.email;
     	if(req.body.pendingTasks == null) delete changes.pendingTasks;
 
     	User.findByIdAndUpdate(req.params.id, {$set: changes}, function(error, result) {

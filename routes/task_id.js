@@ -37,10 +37,10 @@ module.exports = function (router) {
     		assignedUserName: req.body.assignedUserName
     	};
 
-    	//https://stackoverflow.com/questions/9398535/add-dynamic-key-value-pairs-to-javascript-array-or-hash-table
-    	if(req.body.name == null) delete changes.name;
+    	//https://stackoverflow.com/questions/3455405/how-do-i-remove-a-key-from-a-javascript-object
+    	// if(req.body.name == null) delete changes.name;
     	if(req.body.description == null) delete changes.description;
-    	if(req.body.deadline == null) delete changes.deadline;
+    	// if(req.body.deadline == null) delete changes.deadline;
     	if(req.body.completed == null) delete changes.completed;
     	if(req.body.assignedUser == null) delete changes.assignedUser;
     	if(req.body.assignedUserName == null) delete changes.assignedUserName;
